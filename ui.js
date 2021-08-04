@@ -28,6 +28,21 @@ class UI{
         `;
     }
     clearProfile(){
+      console.log("dekha jacche");
         this.profile.innerHTML = '';
     }
+ 
+    showAlert(messsage,classname){
+      let div = document.createElement('div');
+      div.className = classname;
+      div.appendChild(document.createTextNode(messsage));
+      let container = document.querySelector('.searchContainer');
+      let search = document.querySelector(".search");
+      container.insertBefore(div,search);
+      setTimeout(function(){
+        div.remove();
+      },1500);
+    }
+
+
 }

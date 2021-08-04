@@ -9,13 +9,14 @@ searchBtn.addEventListener('click', e => {
     let userText = searchUser.value;
     //    console.log(userText);      
 
-    if (searchUser != '') {
+    if (searchUser !== '') {
         fetch(`https://api.github.com/users/${userText}`)
             .then(result => result.json())
             .then(data =>{
-                if (data.messsage == 'Not Found') {
+                // console.log(data);
+                if (data.message == 'Not Found') {
                     // alert
-
+                 ui.showAlert("Profile Not Found","alert alert-danger");
                 }
                 else {
                     //show profile
@@ -26,7 +27,8 @@ searchBtn.addEventListener('click', e => {
 
             });
     }
-    else {
+    else if(searchUser === '') {
+        console.log("else e dhukse");
       //Clear Profile
       ui.clearProfile();
     }
